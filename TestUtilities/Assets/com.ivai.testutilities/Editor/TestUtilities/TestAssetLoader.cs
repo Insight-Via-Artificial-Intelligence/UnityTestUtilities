@@ -6,19 +6,18 @@ using UnityEngine;
 
 public static class TestAssetLoader
 {
-    public static string baseFolder = "Assets";
-    public static string prefabFolder = "Prefabs";
-    public static string scriptableFolder = "Scriptable";
-    public static string packageName = "";
+    public static string PrefabFolder = "Prefabs";
+    public static string ScriptableFolder = "Scriptable";
+    public static string PackageName = "";
 
     public static string GetPackageFolder(string resourceFolder)
     {
-        if (packageName.Length == 0)
+        if (PackageName.Length == 0)
         {
-            return $"{baseFolder}/{resourceFolder}";
+            return $"Assets/{resourceFolder}";
         }
 
-        return $"{baseFolder}/{packageName}/{resourceFolder}";
+        return $"Assets/{PackageName}/{resourceFolder}";
     }
 
     public static string GetPath(string startFolder, string name, string folder, string fileExtension)
@@ -28,7 +27,7 @@ public static class TestAssetLoader
 
     public static GameObject GetPrefab(string name, string folder)
     {
-        string path = GetPath(prefabFolder, name, folder, "prefab");
+        string path = GetPath(PrefabFolder, name, folder, "prefab");
 
         GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(path);
 
@@ -98,7 +97,7 @@ public static class TestAssetLoader
 
     public static T GetScriptable<T>(string name, string folder) where T : ScriptableObject
     {
-        string path = GetPath(scriptableFolder, name, folder, "asset");
+        string path = GetPath(ScriptableFolder, name, folder, "asset");
 
         T result = AssetDatabase.LoadAssetAtPath<T>(path);
 
