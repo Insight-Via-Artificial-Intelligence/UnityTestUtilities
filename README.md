@@ -1,6 +1,6 @@
 ![IVAI Banner](repo_header.png "IVAI Banner")
 # Unity Test Utilities
-This repository contains several utility scripts designed to make testing and the creation of editor scripts easier. The repository can be added through the unity package manager with the url: 
+This repository contains several utility scripts designed to make testing and the creation of editor scripts easier. The repository can be added through the unity package manager with the url: https://github.com/Insight-Via-Artificial-Intelligence/UnityTestUtilities.git?path=/TestUtilities/Assets/com.ivai.testutilities
 You may however want to copy the files into your project if your files are not do match the convention of the package, more details below in Test Asset Loader section.
 
 ## Test Asset Loader
