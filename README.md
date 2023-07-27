@@ -1,7 +1,14 @@
 ![IVAI Banner](repo_header.png "IVAI Banner")
 # Unity Test Utilities
-This repository contains several utility scripts designed to make testing and the creation of editor scripts easier. The repository can be added through the unity package manager with the url: https://github.com/Insight-Via-Artificial-Intelligence/UnityTestUtilities.git?path=/TestUtilities/Assets/com.ivai.testutilities
-You may however want to copy the files into your project if your files are not do match the convention of the package, more details below in Test Asset Loader section.
+This repository contains several utility scripts designed to make testing and the creation of editor scripts easier. The repository can be added through the unity package manager. 
+
+NOTE: You may however want to copy the files into your project if your file structures do match the convention of the package (or you don't want to set the package every test), more details below in Test Asset Loader section.
+
+To instal through package manager (Unity 2021+):
+1) Open Package Manager by going from the Window menu.
+2) Press the plus icon
+3) Select from "Add package from Git Url"
+4) Supply the following url: https://github.com/Insight-Via-Artificial-Intelligence/UnityTestUtilities.git?path=/TestUtilities/Assets/com.ivai.testutilities
 
 ## Test Asset Loader
 The Test Asset Loader is a static script which provides a simple ways of creating assets for test cases to reduce the amount of set-up code and to reduce the need for wrangling strings. This is an editor script and only works during testing. If you require a runtime way of loading assets consider using the resource folder with Resources.Load or using the Addressables package.
