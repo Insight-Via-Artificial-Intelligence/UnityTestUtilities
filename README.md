@@ -51,6 +51,9 @@ Gets the scriptable within the folder (based on the assumptions of folder struct
 ### public static void CleanUpObjects(List<GameObject> testObjects)
 Destroys a list of GameObjects, reccomeneded to create a list of all testing objects during testing and destroying them during tear down. To avoid lingering objects if transform structure is updates will check up to 10 levels for the parent object to destroy. Clears list on compeletion.
 
+## Test Samples:
+If you clone the project and go to Window -> General -> Test Runner and then select the playmode tab and expand all you will see the sample tests provided. Right click on a test such as HelloWorld test and hit open source code to see the given test.
+
 ## Inspector Helpers
 Includes static functions to add simple elements to a UIElements inspector script allowing inspector scripts to be written in a handful of lines.
 
