@@ -46,3 +46,9 @@ Destroys a list of GameObjects, reccomeneded to create a list of all testing obj
 
 ## Inspector Helpers
 Includes static functions to add simple elements to a UIElements inspector script allowing inspector scripts to be written in a handful of lines.
+
+### public static void AddButtonWithFunction(VisualElement myInspector, string description, Action function)
+Adds a button to the VisualLayout, with the description text which invokes the given function when pressed.
+
+### public static void AddLable(VisualElement myInspector, string description)
+Adds a label to the VisualLayout with the description.
