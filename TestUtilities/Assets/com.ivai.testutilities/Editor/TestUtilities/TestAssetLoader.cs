@@ -11,7 +11,7 @@ public static class TestAssetLoader
     public static string scriptableFolder = "Scriptable";
     public static string packageName = "";
 
-    public static string GetPackageFolder(string baseFolder, string resourceFolder)
+    public static string GetPackageFolder(string resourceFolder)
     {
         if (packageName.Length == 0)
         {
@@ -23,9 +23,7 @@ public static class TestAssetLoader
 
     public static string GetPath(string startFolder, string name, string folder, string fileExtension)
     {
-        string startPath = GetPackageFolder(baseFolder, startFolder);
-
-        return $"{startPath}/{folder}/{name}.{fileExtension}";
+        return $"{GetPackageFolder(startFolder)}/{folder}/{name}.{fileExtension}";
     }
 
     public static GameObject GetPrefab(string name, string folder)
