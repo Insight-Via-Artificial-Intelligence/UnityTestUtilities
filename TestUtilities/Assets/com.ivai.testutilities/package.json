@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "displayName": "IVAI Test Utilities",
   "description": "A collection of utility scripts to help with test and creating editor scripts",
-  "unity": ">=2020.0",
+  "unity": "2020.0",
   "dependencies": {
   },
   "keywords": [
