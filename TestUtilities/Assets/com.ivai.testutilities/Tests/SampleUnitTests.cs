@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace IVAI.TestableSample.Tests
 {
-    public class SampleUnitTests : MonoBehaviour
+    public class SampleUnitTests
     {
         // A list of all objects created during testing.
         private List<GameObject> testObjects = new List<GameObject>();
@@ -42,6 +42,14 @@ namespace IVAI.TestableSample.Tests
             string helloWorld = sampleUnit.HelloWorld();
 
             Assert.AreEqual("Hello World", helloWorld);
+        }
+
+        [Test]
+        public void CreatePrefab()
+        {
+            SampleUnit secondUnit = TestAssetLoader.CreatePrefabThatHasScript<SampleUnit>("SampleUnit", "", testObjects);
+
+            Assert.IsNotNull(secondUnit);
         }
 
     }

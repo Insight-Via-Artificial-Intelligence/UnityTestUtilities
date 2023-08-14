@@ -3,6 +3,7 @@
 // License text available at https://github.com/Insight-Via-Artificial-Intelligence/UnityTestUtilities/blob/main/LICENSE
 
 using System.Collections.Generic;
+using System.IO;
 
 using UnityEditor;
 using UnityEngine;
@@ -16,8 +17,89 @@ namespace IVAI.EditorUtilities.Testing
         public static string ScriptableFolder = "Scriptable";
         public static string PackageName = "";
 
+        private static string settingsFileName = "TestAssetLoaderSettings";
+        private static bool checkedSettings = false;
+
+        private static void CheckSettings()
+        {
+            if (checkedSettings)
+            {
+                return;
+            }
+
+            checkedSettings = true;
+
+            string path = $"{Application.dataPath}/Editor/{settingsFileName}.txt";
+
+            if (!File.Exists(path)) 
+            {
+                return;
+            }
+
+            string[] readLines = File.ReadAllLines(path);
+
+            if (readLines.Length < 1) 
+            {
+                return;
+            }
+
+            if (!TryGetName(readLines[0], out string toSet))
+            {
+                return;
+            }
+
+            PrefabFolder = toSet;
+
+            if (readLines.Length < 2)
+            {
+                return;
+            }
+
+            if (!TryGetName(readLines[1], out toSet))
+            {
+                return;
+            }
+
+            ScriptableFolder = toSet;
+
+            if (readLines.Length < 3)
+            {
+                return;
+            }
+
+            if (!TryGetName(readLines[2], out toSet))
+            {
+                return;
+            }
+
+            PackageName = toSet;
+        }
+
+        private static bool TryGetName(string toGetName, out string nameString)
+        {
+            nameString = toGetName;
+
+            if (toGetName.Length == 0) 
+            {
+                return false;
+            }
+
+            string[] splitString = nameString.Split(" ", System.StringSplitOptions.RemoveEmptyEntries);
+
+            if (splitString.Length == 0)
+            {
+                return false;
+            }
+
+            nameString = splitString[^1];
+
+            return true;
+        }
+
         public static string GetPackageFolder(string resourceFolder)
         {
+            CheckSettings();
+
             if (PackageName.Length == 0)
             {
                 return $"Assets/{resourceFolder}";
