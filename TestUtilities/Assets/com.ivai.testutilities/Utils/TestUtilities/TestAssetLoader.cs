@@ -13,9 +13,53 @@ namespace IVAI.EditorUtilities.Testing
 
     public static class TestAssetLoader
     {
-        public static string PrefabFolder = "Prefabs";
-        public static string ScriptableFolder = "Scriptable";
-        public static string PackageName = "";
+        private static string prefabFolder = "Prefabs";
+
+        public static string PrefabFolder
+        {
+            get
+            {
+                return prefabFolder;
+            }
+
+            set
+            {
+                CheckSettings();
+                prefabFolder = value;
+            }
+        }
+
+        private static string scriptableFolder = "Scriptable";
+
+        public static string ScriptableFolder
+        {
+            get
+            {
+                return scriptableFolder;
+            }
+
+            set
+            {
+                CheckSettings();
+                scriptableFolder = value;
+            }
+        }
+
+        private static string packageName = "";
+
+        public static string PackageName
+        {
+            get
+            {
+                return packageName;
+            }
+
+            set
+            {
+                CheckSettings();
+                packageName = value;
+            }
+        }
 
         private static string settingsFileName = "TestAssetLoaderSettings";
         private static bool checkedSettings = false;
