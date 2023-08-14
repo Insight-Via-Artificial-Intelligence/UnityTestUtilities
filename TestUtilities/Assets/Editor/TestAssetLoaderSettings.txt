@@ -1,3 +1,3 @@
-Prefab Folder Prefabs
-Scriptable Folder ScriptableFolder
-Package com.ivai.testutilities
+Prefab Folder: Prefabs
+Scriptable Folder: Scriptable
+Package: com.ivai.testutilities
