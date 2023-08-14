@@ -115,6 +115,8 @@ namespace IVAI.EditorUtilities.Testing
 
         public static GameObject GetPrefab(string name, string folder)
         {
+            CheckSettings();
+
             string path = GetPath(PrefabFolder, name, folder, "prefab");
 
             GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(path);
@@ -185,6 +187,8 @@ namespace IVAI.EditorUtilities.Testing
 
         public static T GetScriptable<T>(string name, string folder) where T : ScriptableObject
         {
+            CheckSettings();
+
             string path = GetPath(ScriptableFolder, name, folder, "asset");
 
             T result = AssetDatabase.LoadAssetAtPath<T>(path);
