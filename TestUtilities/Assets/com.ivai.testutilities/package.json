@@ -1,6 +1,6 @@
 {
   "name": "com.ivai.testutilities",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "displayName": "IVAI Test Utilities",
   "description": "A collection of utility scripts to help with test and creating editor scripts",
   "unity": "2021.3",
