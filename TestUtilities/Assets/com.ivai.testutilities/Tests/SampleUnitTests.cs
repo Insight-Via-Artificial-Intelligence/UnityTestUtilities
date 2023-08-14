@@ -47,7 +47,7 @@ namespace IVAI.TestableSample.Tests
         [Test]
         public void CreatePrefab()
         {
-            SampleUnit secondUnit = TestAssetLoader.CreatePrefabThatHasScript<SampleUnit>("SampleUnit", "", testObjects);
+            SampleUnit secondUnit = TestAssetLoader.CreatePrefab<SampleUnit>("SampleUnit", "", testObjects);
 
             Assert.IsNotNull(secondUnit);
         }

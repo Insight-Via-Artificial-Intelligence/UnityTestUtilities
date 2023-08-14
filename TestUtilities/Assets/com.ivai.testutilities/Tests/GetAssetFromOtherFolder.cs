@@ -34,7 +34,7 @@ namespace IVAI.TestableSample.Tests
             TestAssetLoader.PrefabFolder = "DifferentPrefabFolder";
             
             // The variant is in a different folder structure
-            sampleUnit = TestAssetLoader.CreatePrefabThatHasScript<SampleUnit>("SampleUnit Variant", "", testObjects);
+            sampleUnit = TestAssetLoader.CreatePrefab<SampleUnit>("SampleUnit Variant", "", testObjects);
         }
 
         [TearDown]

@@ -196,7 +196,7 @@ namespace IVAI.EditorUtilities.Testing
             return instance;
         }
 
-        public static T CreatePrefabThatHasScript<T>(string name, string folder, List<GameObject> testObjects) where T : Component
+        public static T CreatePrefab<T>(string name, string folder, List<GameObject> testObjects) where T : Component
         {
             GameObject instance = CreatePrefab(name, folder, testObjects);
 

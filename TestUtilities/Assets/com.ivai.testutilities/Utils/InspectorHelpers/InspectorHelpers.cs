@@ -6,7 +6,7 @@ using System;
 
 using UnityEngine.UIElements;
 
-namespace IVAI.EditorUtilities.Testing
+namespace IVAI.EditorUtilities.InspectorEditor
 {
 
     public static class InspectorHelpers
