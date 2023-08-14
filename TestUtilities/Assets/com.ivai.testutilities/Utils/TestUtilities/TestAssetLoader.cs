@@ -19,6 +19,7 @@ namespace IVAI.EditorUtilities.Testing
         {
             get
             {
+                CheckSettings();
                 return prefabFolder;
             }
 
@@ -35,6 +36,7 @@ namespace IVAI.EditorUtilities.Testing
         {
             get
             {
+                CheckSettings();
                 return scriptableFolder;
             }
 
@@ -51,6 +53,7 @@ namespace IVAI.EditorUtilities.Testing
         {
             get
             {
+                CheckSettings();
                 return packageName;
             }
 
@@ -142,8 +145,6 @@ namespace IVAI.EditorUtilities.Testing
 
         public static string GetPackageFolder(string resourceFolder)
         {
-            CheckSettings();
-
             if (PackageName.Length == 0)
             {
                 return $"Assets/{resourceFolder}";
@@ -159,8 +160,6 @@ namespace IVAI.EditorUtilities.Testing
 
         public static GameObject GetPrefab(string name, string folder)
         {
-            CheckSettings();
-
             string path = GetPath(PrefabFolder, name, folder, "prefab");
 
             GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(path);
