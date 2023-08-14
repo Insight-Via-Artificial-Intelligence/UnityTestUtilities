@@ -2,10 +2,8 @@
 # Unity Test Utilities
 This repository contains several utility scripts designed to make testing and the creation of editor scripts easier. The repository can be added through the unity package manager. 
 
-NOTE: You may however want to copy the files into your project if your file structures do match the convention of the package (or you don't want to set the package every test), more details below in Test Asset Loader section.
-
-To instal through package manager (Unity 2021+):
-1) Open Package Manager by going from the Window menu.
+To install through package manager (Unity 2021+):
+1) Open Package Manager from the Window menu.
 2) Press the plus icon
 3) Select from "Add package from Git Url"
 4) Supply the following url: https://github.com/Insight-Via-Artificial-Intelligence/UnityTestUtilities.git?path=/TestUtilities/Assets/com.ivai.testutilities
@@ -14,7 +12,15 @@ To instal through package manager (Unity 2021+):
 The Test Asset Loader is a static script which provides a simple ways of creating assets for test cases to reduce the amount of set-up code and to reduce the need for wrangling strings. This is an editor script and only works during testing. If you require a runtime way of loading assets consider using the resource folder with Resources.Load or using the Addressables package.
 
 ### Note on paths:
-By default the class Test Asset loader will look for Prefabs in the path: Assets\Prefabs\[Folder]\[AssetName].prefab and will look for scriptable objects in the path: Assets\Scriptable\[Folder]\[AssetName].asset. If the asset is within a subfolder providing the subfolder as the folder argument will work, however if the folder containing scriptable objects \ prefabs is not within the top level of the project or has a different name then the public static strings will need to be modified to get the correct path. This can be done at any time, but it I reccomend either A) copying the file and editing the relevant strings or B) during the SetUp method in testing.
+By default the class Test Asset loader will look for Prefabs in the path: Assets\Prefabs\[Folder]\[AssetName].prefab and will look for scriptable objects in the path: Assets\Scriptable\[Folder]\[AssetName].asset. In the case you do not follow this convention you can either:
+A) Change public variables in the test asset loader
+B) Add a file called "TestAssetLoaderSettings" to a root Editor folder. Within this file specify the paths from the asset folder that your project specific files live. The file format is as below:
+Prefab Folder: Prefabs
+Scriptable Folder: Scriptable
+PackageName: com.yourcompany.yourproject
+(The asset loader will set the value after the last space to be the given variable).
+
+In the case of the asset being in a subfolder of already set folder, simple provide the folder/subfolder as the argument to the function.
 
 ### public static string PrefabFolder 
 Base folder/s for prefab Assets.
