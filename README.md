@@ -1,8 +1,16 @@
 ![IVAI Banner](repo_header.png "IVAI Banner")
 # Unity Test Utilities
-This repository contains several utility scripts designed to make testing and the creation of editor scripts easier. The repository can be added through the unity package manager. 
+This repository contains several utility scripts designed to make testing using Unity's Test Framework package easier and the creation of editor scripts easier using the new ui elements easier.
 
-To install through package manager (Unity 2021+):
+If you have never used the Unity's Testframe work before I suggest you follow through the getting started guide before installing the package:
+https://docs.unity3d.com/Packages/com.unity.test-framework@1.1/manual/index.html
+Creating a test assembly:
+https://docs.unity3d.com/Packages/com.unity.test-framework@1.1/manual/workflow-create-test-assembly.html
+
+If you have never used the UIToolkit you can follow the getting started guide here:
+[https://docs.unity3d.com/Manual/UIElements.html](https://docs.unity3d.com/Manual/UIE-simple-ui-toolkit-workflow.html)
+
+To use the scripts add through package manager (Unity 2021+):
 1) Open Package Manager from the Window menu.
 2) Press the plus icon
 3) Select from "Add package from Git Url"
