@@ -11,6 +11,8 @@ https://docs.unity3d.com/Packages/com.unity.test-framework@1.1/manual/workflow-c
 If you have never used the UIToolkit you can follow the getting started guide here:
 [https://docs.unity3d.com/Manual/UIElements.html](https://docs.unity3d.com/Manual/UIE-simple-ui-toolkit-workflow.html)
 
+Note: The focus on this package is making PlayMode tests which allow users to test scripts in a temporary scene provided by the test launcher. When opening the test runner it will default to EditMode tests, ensure you switch to the Playmode and create a Playmode assembly not an Editmode assembly.
+
 To use the scripts add through package manager (Unity 2021+):
 1) Open Package Manager from the Window menu.
 2) Press the plus icon
