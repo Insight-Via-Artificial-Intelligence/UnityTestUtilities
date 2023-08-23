@@ -45,6 +45,13 @@ namespace IVAI.EditorUtilities.InspectorEditor
             myInspector.Add(label);
         }
 
+        public static void GetAssetsAt<T>(List<T> toFill, string path) where T : UnityEngine.Object
+        {
+            string[] paths = new string[1];
+            paths[0] = path;
+            GetAssetsAt(toFill, paths);
+        }
+
         public static void GetAssetsAt<T>(List<T> toFill, string[] paths) where T: UnityEngine.Object
         {
             if (toFill == null)
