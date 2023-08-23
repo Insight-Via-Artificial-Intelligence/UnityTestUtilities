@@ -3,7 +3,9 @@
 // License text available at https://github.com/Insight-Via-Artificial-Intelligence/UnityTestUtilities/blob/main/LICENSE
 
 using System;
+using System.Collections.Generic;
 
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace IVAI.EditorUtilities.InspectorEditor
@@ -27,6 +29,24 @@ namespace IVAI.EditorUtilities.InspectorEditor
             label.text = description;
             label.name = description;
             myInspector.Add(label);
+        }
+
+        public static List<T> GetAssetsAt<T>(List<T> toFill, string[] paths) where T: UnityEngine.Object
+        {
+            string[] allFiles = UnityEditor.AssetDatabase.FindAssets("t:audioclip", paths);
+
+            Debug.Log(allFiles.Length);
+
+            foreach (string guid in allFiles)
+            {
+                string path = UnityEditor.AssetDatabase.GUIDToAssetPath(guid);
+
+                T clip = (T)UnityEditor.AssetDatabase.LoadAssetAtPath(path, typeof(AudioClip));
+
+                toFill.Add(clip);
+            }
+
+            return toFill;
         }
     }
 }
