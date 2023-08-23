@@ -5,6 +5,8 @@
 using System;
 using System.Collections.Generic;
 
+using UnityEditor;
+
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -13,6 +15,18 @@ namespace IVAI.EditorUtilities.InspectorEditor
 
     public static class InspectorHelpers
     {
+        public static VisualTreeAsset GetDefaultTree()
+        {
+            VisualTreeAsset visualTreeAsset = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Packages/com.ivai.testutilities/EditorLayout/BasicEditor.uxml");
+
+            if (visualTreeAsset)
+            {
+                return visualTreeAsset;
+            }
+
+            return AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/com.ivai.testutilities/EditorLayout/BasicEditor.uxml");
+        }
+
         public static void AddButtonWithFunction(VisualElement myInspector, string description, Action function)
         {
             Button button = new Button();
