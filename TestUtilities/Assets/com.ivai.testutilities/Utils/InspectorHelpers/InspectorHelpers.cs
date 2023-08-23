@@ -31,8 +31,14 @@ namespace IVAI.EditorUtilities.InspectorEditor
             myInspector.Add(label);
         }
 
-        public static List<T> GetAssetsAt<T>(List<T> toFill, string[] paths) where T: UnityEngine.Object
+        public static void GetAssetsAt<T>(List<T> toFill, string[] paths) where T: UnityEngine.Object
         {
+            if (toFill == null)
+            {
+                Debug.LogWarning("To fill was null!");
+                return;
+            }
+
             string[] allFiles = UnityEditor.AssetDatabase.FindAssets("t:audioclip", paths);
 
             Debug.Log(allFiles.Length);
@@ -45,8 +51,6 @@ namespace IVAI.EditorUtilities.InspectorEditor
 
                 toFill.Add(clip);
             }
-
-            return toFill;
         }
     }
 }
