@@ -8,6 +8,7 @@ using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TestTools;
 
 namespace IVAI.TestableSample.Tests
 {
@@ -29,6 +30,9 @@ namespace IVAI.TestableSample.Tests
         [TearDown]
         public void TearDown()
         {
+            // Reset time scale
+            Time.timeScale = 1.0f;
+
             // Remove reference to unit
             sampleUnit = null;
 
@@ -50,6 +54,24 @@ namespace IVAI.TestableSample.Tests
             SampleUnit secondUnit = TestAssetLoader.CreatePrefab<SampleUnit>("SampleUnit", "", testObjects);
 
             Assert.IsNotNull(secondUnit);
+        }
+
+        // Unity test marked methods allows us to write tests like unity coroutines:
+        // https://docs.unity3d.com/Manual/Coroutines.html
+        // Useful if what we want to test happens over time
+        [UnityTest]
+        public IEnumerator TestRealtimeWait()
+        {
+            // Increase time scale to speed up test
+            Time.timeScale = 10f;
+
+            // Since our time scale is 10, 2 seconds becomes 0.2 seconds
+            // This is import as a 100 tests which takes 2 seconds is over 3 minutes
+            // We can use wait realtime if we want to ignore timescale
+            yield return new WaitForSeconds(2f);
+
+            // The count of seconds just converts waited time to int
+            Assert.AreEqual(2, sampleUnit.CountOfSecondsSinceActive);
         }
 
     }

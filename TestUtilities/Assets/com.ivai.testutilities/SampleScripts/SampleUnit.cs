@@ -10,16 +10,23 @@ namespace IVAI.TestableSample.Runtime
 {
     public class SampleUnit : MonoBehaviour
     {
+        // How many seconds the unit has been enabled since start
+        public int CountOfSecondsSinceActive { private set; get; } = 0;
+
+        protected float timer = 0f;
+
         // Start is called before the first frame update
-        void Start()
+        private void Start()
         {
 
         }
 
         // Update is called once per frame
-        void Update()
+        private void Update()
         {
+            timer += Time.deltaTime;
 
+            CountOfSecondsSinceActive = (int)timer;
         }
 
         public string HelloWorld()
