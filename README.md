@@ -83,3 +83,9 @@ Adds a button to the VisualLayout, with the description text which invokes the g
 
 ### public static void AddLable(VisualElement myInspector, string description)
 Adds a label to the VisualLayout with the description.
+
+### public static void GetAssetsAt<T>(List<T> toFill, string path) where T : UnityEngine.Object
+Fills the given list with assets of the type from the asset data base. Useful if you want to assign a lot of assets to scriptable objects. E.g. a scriptable object which holds a list of audio tracks.
+
+### public static void GetAssetsAt<T>(List<T> toFill, string[] paths) where T: UnityEngine.Object
+As above except that it accepts multiple asset paths.
