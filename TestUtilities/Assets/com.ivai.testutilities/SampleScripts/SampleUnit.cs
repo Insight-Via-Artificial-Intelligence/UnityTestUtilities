@@ -10,10 +10,13 @@ namespace IVAI.TestableSample.Runtime
 {
     public class SampleUnit : MonoBehaviour
     {
+        [SerializeField]
+        private int changeMeWithInspectorButton = 0;
+
         // How many seconds the unit has been enabled since start
         public int CountOfSecondsSinceActive { private set; get; } = 0;
 
-        protected float timer = 0f;
+        private float timer = 0f;
 
         // Start is called before the first frame update
         private void Start()
@@ -29,9 +32,16 @@ namespace IVAI.TestableSample.Runtime
             CountOfSecondsSinceActive = (int)timer;
         }
 
+        // Any example has to have Hello World
         public string HelloWorld()
         {
             return "Hello World";
+        }
+
+        // A regular function to be called through the inspector
+        public void SetChangeMe(int value)
+        {
+            changeMeWithInspectorButton = value;
         }
     }
 }
