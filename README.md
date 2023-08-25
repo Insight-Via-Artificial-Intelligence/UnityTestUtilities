@@ -20,7 +20,7 @@ To use the scripts add through package manager (Unity 2021+):
 4) Supply the following url: https://github.com/Insight-Via-Artificial-Intelligence/UnityTestUtilities.git?path=/TestUtilities/Assets/com.ivai.testutilities
 
 ## Test Asset Loader
-The Test Asset Loader is a static script which provides a simple ways of creating assets for test cases to reduce the amount of set-up code and to reduce the need for wrangling strings. This is an editor script and only works during testing. If you require a runtime way of loading assets consider using the resource folder with Resources.Load or using the Addressables package.
+The Test Asset Loader is a static script which provides simple ways of creating assets for test cases to reduce the amount of set-up code and to reduce the need for wrangling strings. This is an editor script and only works during testing. If you require a runtime way of loading assets consider using the resource folder with Resources.Load or using the Addressables package.
 
 ### Note on paths:
 By default the class Test Asset loader will look for Prefabs in the path: Assets\Prefabs\[Folder]\[AssetName].prefab and will look for scriptable objects in the path: Assets\Scriptable\[Folder]\[AssetName].asset. In the case you do not follow this convention you can either:
@@ -31,7 +31,7 @@ Scriptable Folder: Scriptable
 PackageName: com.yourcompany.yourproject
 (The asset loader will set the value after the last space to be the given variable).
 
-In the case of the asset being in a subfolder of already set folder, simple provide the folder/subfolder as the argument to the function.
+In the case of the asset being in a subfolder of an already set folder, simply provide the folder/subfolder as the argument to the function.
 
 ### public static string PrefabFolder 
 Base folder/s for prefab Assets.
@@ -49,24 +49,24 @@ Gets the folder that it is expected to have the prefab and scriptable folders in
 Gets the full path of the expected folder. Can be used to get a path in case the asset you want is within a different part of the project.
 
 ### public static GameObject GetPrefab(string name, string folder)
-Gets the prefab of the name within the folder (based on the assumptions of folder structure as listed above). If you intend to instanstiate the prefab I suggest using CreatePrefab.
+Gets the prefab of the name within the folder (based on the assumptions of folder structure as listed above). If you intend to instantiate the prefab I suggest using CreatePrefab.
 
 ### public static GameObject CreatePrefab(string name, string folder, List<GameObject> testObjects)
-Instanstiates the given prefab at position (0,0,0) with quanterion.identity rotation and adds it to a list of testing objects (so they can be destroyed during teardown).
+Instantiates the given prefab at position (0,0,0) with Quanterion.identity rotation and adds it to a list of testing objects (so they can be destroyed during teardown).
 
 ### public static T CreatePrefab<T>(string name, string folder, List<GameObject> testObjects) where T : Component
-Instanstiates the given prefab at position (0,0,0) with quanterion.identity rotation and adds it to a list of testing objects (so they can be destroyed during teardown). Afterwards it will try to get the given component in children on the object and return it.
+Instantiates the given prefab at position (0,0,0) with Quanterion.identity rotation and adds it to a list of testing objects (so they can be destroyed during teardown). Afterwards it will try to get the given component in children on the object and return it.
 Works for non-monobehaviours components.
 
 ### public static T CreateComponentOfType<T>(List<GameObject> testObjects, string name = "Created") where T : Component
-Creates a new GameObject at position (0,0,0) with quanterion.identity rotation and attaches the component of type T to the GameObject.
+Creates a new GameObject at position (0,0,0) with Quanterion.identity rotation and attaches the component of type T to the GameObject.
 Works for non-monobehaviours components.
 
 ### public static T GetScriptable<T>(string name, string folder) where T : ScriptableObject
 Gets the scriptable within the folder (based on the assumptions of folder structure as listed above).
 
 ### public static void CleanUpObjects(List<GameObject> testObjects)
-Destroys a list of GameObjects, reccomeneded to create a list of all testing objects during testing and destroying them during tear down. To avoid lingering objects if transform structure is updates will check up to 10 levels for the parent object to destroy. Clears list on compeletion.
+Destroys a list of GameObjects, recommended to create a list of all testing objects during testing and destroying them during tear down (any method with the \[TearDown] property). To avoid lingering objects it will check up to 10 levels for the parent object to destroy. Clears list on completion.
 
 ## Test Samples:
 If you clone the project and go to Window -> General -> Test Runner and then select the playmode tab and expand all you will see the sample tests provided. Right click on a test such as HelloWorld test and hit open source code to see the given test.
@@ -91,4 +91,4 @@ Fills the given list with assets of the type from the asset data base. Useful if
 As above except that it accepts multiple asset paths.
 
 ## Inspector Sample:
-You can see a simple sample inspector by navigating to "SampleScene" selecting the sampleunit in the heirchary will show the simple inspector with added buttons and labels. Code is within the editor folder.
+You can see a simple sample inspector by navigating to "SampleScene '' selecting the sampleunit in the hierarchy will show the simple inspector with added buttons and labels. Code is within the editor folder.
