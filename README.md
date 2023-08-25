@@ -89,3 +89,6 @@ Fills the given list with assets of the type from the asset data base. Useful if
 
 ### public static void GetAssetsAt<T>(List<T> toFill, string[] paths) where T: UnityEngine.Object
 As above except that it accepts multiple asset paths.
+
+## Inspector Sample:
+You can see a simple sample inspector by navigating to "SampleScene" selecting the sampleunit in the heirchary will show the simple inspector with added buttons and labels. Code is within the editor folder.
