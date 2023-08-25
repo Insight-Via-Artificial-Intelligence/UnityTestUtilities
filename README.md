@@ -74,6 +74,10 @@ If you clone the project and go to Window -> General -> Test Runner and then sel
 ## Inspector Helpers
 Includes static functions to add simple elements to a UIElements inspector script allowing inspector scripts to be written in a handful of lines.
 
+### public static VisualTreeAsset GetDefaultTree()
+Gets a default visual tree asset from the project. The tree is here: TestUtilities/Assets/com.ivai.testutilities/EditorLayout/BasicEditor.uxml
+Use it as a template to create more complex trees (i.e. if you need more than buttons and labels).
+
 ### public static void AddButtonWithFunction(VisualElement myInspector, string description, Action function)
 Adds a button to the VisualLayout, with the description text which invokes the given function when pressed.
 
