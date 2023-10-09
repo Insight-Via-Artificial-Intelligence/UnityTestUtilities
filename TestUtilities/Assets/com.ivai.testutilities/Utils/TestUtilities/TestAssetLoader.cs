@@ -320,5 +320,12 @@ namespace IVAI.EditorUtilities.Testing
             return basePosition * modifier * finalModifier;
         }
 
+        public static bool MostlyEqual(float first, float second, float tolerance = 0.001f)
+        {
+            float difference = Mathf.Abs(first - second);
+
+            return difference <= tolerance;
+        }
+
     }
 }

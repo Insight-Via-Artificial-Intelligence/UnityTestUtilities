@@ -74,5 +74,24 @@ namespace IVAI.TestableSample.Tests
             Assert.AreEqual(2, sampleUnit.CountOfSecondsSinceActive);
         }
 
+        // Use test function to check whether two floats are close enough to be considered equal
+        [Test]
+        public void MostlyEqual()
+        {
+            float expected = 10f;
+
+            sampleUnit.transform.position = Vector3.one * expected;
+
+            Assert.IsTrue(TestAssetLoader.MostlyEqual(expected, sampleUnit.transform.position.z, 0.1f));
+        }
+
+        [Test]
+        public void MostlyNotEqual()
+        {
+            float firstNumber = 10f;
+            float secondNumber = 10.1f;
+
+            Assert.IsFalse(TestAssetLoader.MostlyEqual(firstNumber, secondNumber));
+        }
     }
 }
