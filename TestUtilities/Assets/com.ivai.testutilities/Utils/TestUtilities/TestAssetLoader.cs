@@ -327,5 +327,12 @@ namespace IVAI.EditorUtilities.Testing
             return difference <= tolerance;
         }
 
+        public static bool MostlyEqual(Vector3 first, Vector3 second, float tolerance = 0.001f)
+        {
+            float difference = Vector3.Distance(first, second);
+
+            return difference <= tolerance;
+        }
+
     }
 }
