@@ -324,14 +324,28 @@ namespace IVAI.EditorUtilities.Testing
         {
             float difference = Mathf.Abs(first - second);
 
-            return difference <= tolerance;
+            bool mostlyEqual = difference <= tolerance;
+
+            if (!mostlyEqual)
+            {
+                Debug.Log($"first: {first}, second: {second}, difference was {difference} >= {tolerance}");
+            }
+
+            return mostlyEqual;
         }
 
         public static bool MostlyEqual(Vector3 first, Vector3 second, float tolerance = 0.001f)
         {
             float difference = Vector3.Distance(first, second);
 
-            return difference <= tolerance;
+            bool mostlyEqual = difference <= tolerance;
+
+            if (!mostlyEqual)
+            {
+                Debug.Log($"first: {first}, second: {second}, difference was {difference} >= {tolerance}");
+            }
+
+            return mostlyEqual;
         }
 
     }
