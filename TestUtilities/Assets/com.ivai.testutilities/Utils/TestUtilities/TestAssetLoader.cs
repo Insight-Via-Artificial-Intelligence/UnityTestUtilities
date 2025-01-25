@@ -230,9 +230,14 @@ namespace IVAI.EditorUtilities.Testing
 
         public static T GetScriptable<T>(string name, string folder) where T : ScriptableObject
         {
+            return GetScriptable<T>(name, folder, ScriptableFolder);
+        }
+
+        public static T GetScriptable<T>(string name, string folder, string scriptableFolder) where T : ScriptableObject
+        {
             CheckSettings();
 
-            string path = GetPath(ScriptableFolder, name, folder, "asset");
+            string path = GetPath(scriptableFolder, name, folder, "asset");
 
             T result = AssetDatabase.LoadAssetAtPath<T>(path);
 
