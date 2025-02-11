@@ -160,7 +160,12 @@ namespace IVAI.EditorUtilities.Testing
 
         public static GameObject GetPrefab(string name, string folder)
         {
-            string path = GetPath(PrefabFolder, name, folder, "prefab");
+            return GetPrefab(name, folder, PrefabFolder);
+        }
+
+        public static GameObject GetPrefab(string name, string folder, string prefabFolderName)
+        {
+            string path = GetPath(prefabFolderName, name, folder, "prefab");
 
             GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(path);
 
@@ -175,7 +180,13 @@ namespace IVAI.EditorUtilities.Testing
         //Creates given prefab from prefabs folder in resourcesFile.
         public static GameObject CreatePrefab(string name, string folder, List<GameObject> testObjects)
         {
-            GameObject prefab = GetPrefab(name, folder);
+            return CreatePrefab(name, folder, PrefabFolder, testObjects);
+        }
+
+        //Creates given prefab from prefabs folder in resourcesFile.
+        public static GameObject CreatePrefab(string name, string folder, string prefabFolderName, List<GameObject> testObjects)
+        {
+            GameObject prefab = GetPrefab(name, folder, prefabFolderName);
 
             if (!prefab)
             {
